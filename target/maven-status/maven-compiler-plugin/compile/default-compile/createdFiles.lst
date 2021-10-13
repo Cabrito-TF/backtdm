@@ -1,0 +1,4 @@
+com\backtdm\repository\ClienteRepository.class
+com\backtdm\BacktdmApplication.class
+com\backtdm\controllers\UserController.class
+com\backtdm\models\Cliente.class
