@@ -6,11 +6,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 @NoArgsConstructor
-public class MyUserPrincipal implements UserDetails {
+public class UserDetail implements UserDetails {
     private User user;
 
-    public MyUserPrincipal(User user){
-        this.user = user;
+    public UserDetail(User user){
+        System.out.println();
+    this.user = user;
     }
 
     @Override
@@ -20,12 +21,12 @@ public class MyUserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return user.getUsername();
     }
 
     @Override

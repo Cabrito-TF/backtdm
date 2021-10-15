@@ -47,9 +47,7 @@ public class UserController {
     public ResponseEntity<?> createAuthToken(@RequestBody AuthRequest authRequest) throws Exception{
         System.out.println(authRequest.getUsername() + authRequest.getPassword());
         try{
-            authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
-            );
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         }catch (BadCredentialsException e){
             throw new Exception("email ou senha inválidos", e);
         }
