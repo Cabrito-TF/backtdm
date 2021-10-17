@@ -11,7 +11,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Table(name = "clientes")
-public class Cliente {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,4 +24,7 @@ public class Cliente {
     private String birthdate;
     private String psy;
     private Boolean logged;
+
+    @Column(nullable = false,unique = true)
+    private String username;
 }
