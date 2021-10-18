@@ -77,6 +77,6 @@ public class UserController {
     @CrossOrigin
     @GetMapping("/list")
     public List<User> list() {
-        return users;
+        return userRepository.findAll();
     }
 }
