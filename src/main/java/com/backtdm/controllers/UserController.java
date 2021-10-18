@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+
 @RestController
 @RequestMapping("/")
 public class UserController {
@@ -37,12 +37,14 @@ public class UserController {
     @Autowired
     private JwtUtil jwtTokenUtil;
 
+    @CrossOrigin
     @PostMapping("/Register")
     public User setcliente(@RequestBody User user){
         users.add(user);
         return userRepository.save(user);
     }
 
+    @CrossOrigin
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthToken(@RequestBody AuthRequest authRequest) throws Exception{
         System.out.println(authRequest.getUsername() + authRequest.getPassword());
@@ -57,7 +59,8 @@ public class UserController {
 
         return ResponseEntity.ok(new AuthResponse(jwt));
     }
-
+    
+    @CrossOrigin
     @GetMapping("/{id}")
     public User cliente(@PathVariable("id") Long id) {
         System.out.println("O id é " + id);
@@ -71,6 +74,7 @@ public class UserController {
         return null;
     }
 
+    @CrossOrigin
     @GetMapping("/list")
     public List<User> list() {
         return users;
